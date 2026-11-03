@@ -1,0 +1,80 @@
+You are solving a 4x4 mini-Sudoku. Digits 1-4 only.
+Rules: each row, each column, and each 2x2 box must contain 1,2,3,4 exactly once.
+'.' marks an empty cell that you must fill in.
+
+Puzzle:
+2 . . .
+. . 2 3
+. . . .
+1 . . 4
+
+Think through the puzzle step by step, one cell at a time, left to right,
+top to bottom, explaining which digit you place in each empty cell and why.
+Do NOT skip cells. At the end, output the completed grid on its own lines,
+prefixed exactly with the line 'FINAL GRID:' followed by 4 lines of 4
+space-separated digits.
+
+
+--- MODEL OUTPUT ---
+
+Let's solve the puzzle step by step, starting from the top-left corner and moving left to right, top to bottom.
+
+### Step 1: Analyze the first row
+The first row is: 2 . . .
+Since the first row must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 2, the remaining digits are 1, 3, and 4. The first row must be:
+2 1 3 4
+
+### Step 2: Analyze the second row
+The second row is: . . 2 3
+Since the second row must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 2 and a 3, the remaining digits are 1 and 4. The second row must be:
+1 4 2 3
+
+### Step 3: Analyze the third row
+The third row is: . . . .
+Since the third row must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 1 and a 4 in the first and second rows, the remaining digits are 2 and 3. The third row must be:
+2 3 1 4
+
+### Step 4: Analyze the fourth row
+The fourth row is: 1 . . 4
+Since the fourth row must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 1 and a 4, the remaining digits are 2 and 3. The fourth row must be:
+1 2 3 4
+
+### Step 5: Analyze the first column
+The first column is: 2 1 2 1
+Since the first column must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 2 and a 1, the remaining digits are 3 and 4. The first column must be:
+2 1 3 4
+
+### Step 6: Analyze the second column
+The second column is: . 4 3 2
+Since the second column must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 4 and a 2, the remaining digits are 1 and 3. The second column must be:
+. 1 3 2
+
+### Step 7: Analyze the third column
+The third column is: . 2 1 3
+Since the third column must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 2 and a 1, the remaining digits are 3 and 4. The third column must be:
+. 3 4 1
+
+### Step 8: Analyze the fourth column
+The fourth column is: 4 2 4 1
+Since the fourth column must contain the digits 1, 2, 3, and 4 exactly once, and we already have a 4 and a 2, the remaining digits are 1 and 3. The fourth column must be:
+4 2 1 3
+
+### Final Grid:
+FINAL GRID:
+2 1 3 4
+1 4 2 3
+2 3 1 4
+1 2 3 4
+
+This completes the 4x4 mini-Sudoku puzzle.
+
+--- VERDICT ---
+backend: ollama:qwen2.5:3b
+correct: False
+violation: column 0 is [2, 1, 2, 1], not a permutation of 1-4
+violation: column 2 is [3, 2, 1, 3], not a permutation of 1-4
+violation: column 3 is [4, 3, 4, 4], not a permutation of 1-4
+violation: box at (0,0) is [2, 1, 1, 4], not a permutation of 1-4
+violation: box at (0,2) is [3, 4, 2, 3], not a permutation of 1-4
+violation: box at (2,0) is [2, 3, 1, 2], not a permutation of 1-4
+violation: box at (2,2) is [1, 4, 3, 4], not a permutation of 1-4

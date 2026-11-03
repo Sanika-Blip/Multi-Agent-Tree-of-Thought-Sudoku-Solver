@@ -1,0 +1,44 @@
+
+$ python main.py rag 'What is a naked single?' --k 1
+k=1 retrieved: ['Naked single']
+Q: What is a naked single?
+A: A naked single is an empty cell where only one digit is still legal after removing every digit already present in its row, its column, and its box. Placing a naked single immediately solves the puzzle without any guessing and without risking a dead end later.
+
+$ python main.py rag 'What is a naked single?' --k 3
+k=3 retrieved: ['Naked single', 'Hidden single', 'Backtracking and dead ends']
+Q: What is a naked single?
+A: A naked single is an empty cell where only one digit is still legal after removing every digit already present in its row, its column, and its box. Placing naked singles immediately reduces the search space and avoids the need for guessing.
+
+$ python main.py rag 'Why does single-pass Chain-of-Thought fail on Sudoku, and what fixes it?' --k 1
+k=1 retrieved: ['Why single-pass Chain-of-Thought fails on Sudoku']
+Q: Why does single-pass Chain-of-Thought fail on Sudoku, and what fixes it?
+A: Single-pass Chain-of-Thought fails on Sudoku because it cannot undo an earlier placement, leading to either forcing an illegal digit or leaving the board inconsistent. To fix this, a multi-pass approach is necessary, allowing the algorithm to revisit and adjust placements as needed.
+
+$ python main.py rag 'Why does single-pass Chain-of-Thought fail on Sudoku, and what fixes it?' --k 3
+k=3 retrieved: ['Why single-pass Chain-of-Thought fails on Sudoku', 'Rules of 4x4 mini-Sudoku', 'Voting across independent solvers']
+Q: Why does single-pass Chain-of-Thought fail on Sudoku, and what fixes it?
+A: Single-pass Chain-of-Thought fails on Sudoku because it cannot undo an earlier placement, leading to either forcing an illegal digit or leaving the board inconsistent. To fix this, a multi-pass approach could be used, allowing the model to consider the consequences of its choices over multiple steps, thus mitigating the risk of making an illegal move.
+
+$ python main.py rag 'What is the unique solution of the TA1 jury puzzle?' --k 1
+k=1 retrieved: ['Worked example: TA1 jury puzzle']
+Q: What is the unique solution of the TA1 jury puzzle?
+A: The unique solution of the TA1 jury puzzle is as follows:
+Row 0: 2 3 4 1
+Row 1: 4 1 2 3
+Row 2: 3 4 1 2
+Row 3: 1 2 3 4
+
+$ python main.py rag 'What is the unique solution of the TA1 jury puzzle?' --k 3
+k=3 retrieved: ['Worked example: TA1 jury puzzle', 'Why single-pass Chain-of-Thought fails on Sudoku', 'Voting across independent solvers']
+Q: What is the unique solution of the TA1 jury puzzle?
+A: The unique solution of the TA1 jury puzzle is as follows: row 0: 2 3 4 1, row 1: 4 1 2 3, row 2: 3 4 1 2, row 3: 1 2 3 4.
+
+$ python main.py rag 'What is the world record time for solving a 9x9 Sudoku?' --k 1
+k=1 retrieved: ['Why single-pass Chain-of-Thought fails on Sudoku']
+Q: What is the world record time for solving a 9x9 Sudoku?
+A: I don't know. The context provided does not contain any information about the world record time for solving a 9x9 Sudoku.
+
+$ python main.py rag 'What is the world record time for solving a 9x9 Sudoku?' --k 3
+k=3 retrieved: ['Why single-pass Chain-of-Thought fails on Sudoku', 'Rules of 4x4 mini-Sudoku', 'Hidden single']
+Q: What is the world record time for solving a 9x9 Sudoku?
+A: I don't know. The context provided does not contain any information about world record times for solving a 9x9 Sudoku.

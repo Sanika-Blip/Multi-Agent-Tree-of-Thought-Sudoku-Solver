@@ -1,0 +1,6 @@
+
+$ python seed_store.py
+[seed] SQLite store: C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\data\memory.sqlite
+[seed]   profile = {'name': 'Demo user', 'cell_order': 'first'}
+[seed]   cleared 5 old dead-end entries
+[seed] Chroma: C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\data\chroma  (10 chunks)

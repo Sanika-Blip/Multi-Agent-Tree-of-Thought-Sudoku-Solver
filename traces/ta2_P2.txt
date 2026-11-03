@@ -1,0 +1,90 @@
+Puzzle P2 (cold):
+. 2 | . 3
+3 . | . .
+-----------
+. 1 | . .
+2 . | . .
+
+[hop   1] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (0, 0) -> [2, 3]
+[hop   2] supervisor -> checker     (2 candidate(s) to check for (0, 0))
+    RuleChecker: 2@(0, 0) PRUNED (invalid: row 0 already has 2 at column 1)
+    RuleChecker: 3@(0, 0) PRUNED (invalid: row 0 already has 3 at column 3)
+    RuleChecker: model missed legal digit(s) [1, 4] -> added as fallback
+    RuleChecker: 1@(0, 0) accepted, descending (siblings kept for later: [4])
+[hop   3] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (0, 2) -> [1, 2, 3]
+[hop   4] supervisor -> checker     (3 candidate(s) to check for (0, 2))
+    RuleChecker: 1@(0, 2) PRUNED (invalid: row 0 already has 1 at column 0)
+    RuleChecker: 2@(0, 2) PRUNED (invalid: row 0 already has 2 at column 1)
+    RuleChecker: 3@(0, 2) PRUNED (invalid: row 0 already has 3 at column 3)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(0, 2) accepted, descending
+[hop   5] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (1, 1) -> [1, 2]
+[hop   6] supervisor -> checker     (2 candidate(s) to check for (1, 1))
+    RuleChecker: 1@(1, 1) PRUNED (invalid: column 1 already has 1 at row 2)
+    RuleChecker: 2@(1, 1) PRUNED (invalid: column 1 already has 2 at row 0)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(1, 1) accepted, descending
+[hop   7] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (1, 2) -> [2, 3]
+[hop   8] supervisor -> checker     (2 candidate(s) to check for (1, 2))
+    RuleChecker: 3@(1, 2) PRUNED (invalid: row 1 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 2@(1, 2) accepted, descending (siblings kept for later: [1])
+[hop   9] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (1, 3) -> [2, 3]
+[hop  10] supervisor -> checker     (2 candidate(s) to check for (1, 3))
+    RuleChecker: 2@(1, 3) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 3) PRUNED (invalid: row 1 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(1, 3) accepted, descending
+[hop  11] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (2, 0) -> [1, 2, 3]
+[hop  12] supervisor -> checker     (3 candidate(s) to check for (2, 0))
+    RuleChecker: 1@(2, 0) PRUNED (invalid: row 2 already has 1 at column 1)
+    RuleChecker: 2@(2, 0) PRUNED (invalid: column 0 already has 2 at row 3)
+    RuleChecker: 3@(2, 0) PRUNED (invalid: column 0 already has 3 at row 1)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(2, 0) accepted, descending
+[hop  13] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (2, 2) -> [1, 3]
+[hop  14] supervisor -> checker     (2 candidate(s) to check for (2, 2))
+    RuleChecker: 1@(2, 2) PRUNED (invalid: row 2 already has 1 at column 1)
+    RuleChecker: 3@(2, 2) accepted, descending
+[hop  15] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (2, 3) -> [2, 3, 4]
+[hop  16] supervisor -> checker     (3 candidate(s) to check for (2, 3))
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 2)
+    RuleChecker: 4@(2, 3) PRUNED (invalid: row 2 already has 4 at column 0)
+    RuleChecker: 2@(2, 3) accepted, descending
+[hop  17] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (3, 1) -> [1, 2, 3]
+[hop  18] supervisor -> checker     (3 candidate(s) to check for (3, 1))
+    RuleChecker: 1@(3, 1) PRUNED (invalid: column 1 already has 1 at row 2)
+    RuleChecker: 2@(3, 1) PRUNED (invalid: row 3 already has 2 at column 0)
+    RuleChecker: 3@(3, 1) accepted, descending
+[hop  19] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (3, 2) -> [1, 2, 3]
+[hop  20] supervisor -> checker     (3 candidate(s) to check for (3, 2))
+    RuleChecker: 2@(3, 2) PRUNED (invalid: row 3 already has 2 at column 0)
+    RuleChecker: 3@(3, 2) PRUNED (invalid: row 3 already has 3 at column 1)
+    RuleChecker: 1@(3, 2) accepted, descending
+[hop  21] supervisor -> proposer    (need candidates for the next empty cell)
+    Proposer: cell (3, 3) -> [1, 2, 3]
+[hop  22] supervisor -> checker     (3 candidate(s) to check for (3, 3))
+    RuleChecker: 1@(3, 3) PRUNED (invalid: row 3 already has 1 at column 2)
+    RuleChecker: 2@(3, 3) PRUNED (invalid: row 3 already has 2 at column 0)
+    RuleChecker: 3@(3, 3) PRUNED (invalid: row 3 already has 3 at column 1)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(3, 3) accepted, descending
+[hop  23] supervisor -> finish      (no empty cell left)
+[finish] status=solved after 23 hops
+1 2 | 4 3
+3 4 | 2 1
+-----------
+4 1 | 3 2
+2 3 | 1 4
+
+status=solved hops=23 wall=37.01s stats={'llm_calls': 11, 'pruned_rule': 23, 'pruned_memory': 0, 'fallback_digits': 8, 'backtracks': 0, 'failures': 0, 'dead_ends_saved': 0, 'illegal_accepted': 0, 'llm_seconds': 36.851054430007935}

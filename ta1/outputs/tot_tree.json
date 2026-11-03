@@ -1,0 +1,491 @@
+{
+  "id": 0,
+  "parent_id": null,
+  "cell": null,
+  "value": null,
+  "status": "root",
+  "reason": "initial board",
+  "depth": 0,
+  "children": [
+    {
+      "id": 1,
+      "parent_id": 0,
+      "cell": [
+        0,
+        1
+      ],
+      "value": 2,
+      "status": "pruned",
+      "reason": "invalid: row 0 already has 2 at column 0",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": 2,
+      "parent_id": 0,
+      "cell": [
+        0,
+        1
+      ],
+      "value": 3,
+      "status": "solution",
+      "reason": "passes row/col/box check",
+      "depth": 1,
+      "children": [
+        {
+          "id": 3,
+          "parent_id": 2,
+          "cell": [
+            0,
+            2
+          ],
+          "value": 2,
+          "status": "pruned",
+          "reason": "invalid: row 0 already has 2 at column 0",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": 4,
+          "parent_id": 2,
+          "cell": [
+            0,
+            2
+          ],
+          "value": 3,
+          "status": "pruned",
+          "reason": "invalid: row 0 already has 3 at column 1",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": 5,
+          "parent_id": 2,
+          "cell": [
+            0,
+            2
+          ],
+          "value": 4,
+          "status": "solution",
+          "reason": "passes row/col/box check",
+          "depth": 2,
+          "children": [
+            {
+              "id": 6,
+              "parent_id": 5,
+              "cell": [
+                0,
+                3
+              ],
+              "value": 2,
+              "status": "pruned",
+              "reason": "invalid: row 0 already has 2 at column 0",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": 7,
+              "parent_id": 5,
+              "cell": [
+                0,
+                3
+              ],
+              "value": 3,
+              "status": "pruned",
+              "reason": "invalid: row 0 already has 3 at column 1",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": 8,
+              "parent_id": 5,
+              "cell": [
+                0,
+                3
+              ],
+              "value": 4,
+              "status": "pruned",
+              "reason": "invalid: row 0 already has 4 at column 2",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": 9,
+              "parent_id": 5,
+              "cell": [
+                0,
+                3
+              ],
+              "value": 1,
+              "status": "solution",
+              "reason": "passes row/col/box check (fallback)",
+              "depth": 3,
+              "children": [
+                {
+                  "id": 10,
+                  "parent_id": 9,
+                  "cell": [
+                    1,
+                    0
+                  ],
+                  "value": 2,
+                  "status": "pruned",
+                  "reason": "invalid: row 1 already has 2 at column 2",
+                  "depth": 4,
+                  "children": []
+                },
+                {
+                  "id": 11,
+                  "parent_id": 9,
+                  "cell": [
+                    1,
+                    0
+                  ],
+                  "value": 3,
+                  "status": "pruned",
+                  "reason": "invalid: row 1 already has 3 at column 3",
+                  "depth": 4,
+                  "children": []
+                },
+                {
+                  "id": 12,
+                  "parent_id": 9,
+                  "cell": [
+                    1,
+                    0
+                  ],
+                  "value": 4,
+                  "status": "solution",
+                  "reason": "passes row/col/box check",
+                  "depth": 4,
+                  "children": [
+                    {
+                      "id": 13,
+                      "parent_id": 12,
+                      "cell": [
+                        1,
+                        1
+                      ],
+                      "value": 2,
+                      "status": "pruned",
+                      "reason": "invalid: row 1 already has 2 at column 2",
+                      "depth": 5,
+                      "children": []
+                    },
+                    {
+                      "id": 14,
+                      "parent_id": 12,
+                      "cell": [
+                        1,
+                        1
+                      ],
+                      "value": 3,
+                      "status": "pruned",
+                      "reason": "invalid: row 1 already has 3 at column 3",
+                      "depth": 5,
+                      "children": []
+                    },
+                    {
+                      "id": 15,
+                      "parent_id": 12,
+                      "cell": [
+                        1,
+                        1
+                      ],
+                      "value": 4,
+                      "status": "pruned",
+                      "reason": "invalid: row 1 already has 4 at column 0",
+                      "depth": 5,
+                      "children": []
+                    },
+                    {
+                      "id": 16,
+                      "parent_id": 12,
+                      "cell": [
+                        1,
+                        1
+                      ],
+                      "value": 1,
+                      "status": "solution",
+                      "reason": "passes row/col/box check (fallback)",
+                      "depth": 5,
+                      "children": [
+                        {
+                          "id": 17,
+                          "parent_id": 16,
+                          "cell": [
+                            2,
+                            0
+                          ],
+                          "value": 2,
+                          "status": "pruned",
+                          "reason": "invalid: column 0 already has 2 at row 0",
+                          "depth": 6,
+                          "children": []
+                        },
+                        {
+                          "id": 18,
+                          "parent_id": 16,
+                          "cell": [
+                            2,
+                            0
+                          ],
+                          "value": 3,
+                          "status": "solution",
+                          "reason": "passes row/col/box check",
+                          "depth": 6,
+                          "children": [
+                            {
+                              "id": 19,
+                              "parent_id": 18,
+                              "cell": [
+                                2,
+                                1
+                              ],
+                              "value": 2,
+                              "status": "backtracked",
+                              "reason": "passes row/col/box check (later impasse had no valid candidates -- backtracked)",
+                              "depth": 7,
+                              "children": [
+                                {
+                                  "id": 20,
+                                  "parent_id": 19,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 2,
+                                  "status": "pruned",
+                                  "reason": "invalid: row 2 already has 2 at column 1",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 21,
+                                  "parent_id": 19,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 3,
+                                  "status": "pruned",
+                                  "reason": "invalid: row 2 already has 3 at column 0",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 22,
+                                  "parent_id": 19,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 4,
+                                  "status": "pruned",
+                                  "reason": "invalid: column 2 already has 4 at row 0",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 23,
+                                  "parent_id": 19,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 1,
+                                  "status": "backtracked",
+                                  "reason": "passes row/col/box check (fallback) (later impasse had no valid candidates -- backtracked)",
+                                  "depth": 8,
+                                  "children": [
+                                    {
+                                      "id": 24,
+                                      "parent_id": 23,
+                                      "cell": [
+                                        2,
+                                        3
+                                      ],
+                                      "value": 2,
+                                      "status": "pruned",
+                                      "reason": "invalid: row 2 already has 2 at column 1",
+                                      "depth": 9,
+                                      "children": []
+                                    },
+                                    {
+                                      "id": 25,
+                                      "parent_id": 23,
+                                      "cell": [
+                                        2,
+                                        3
+                                      ],
+                                      "value": 3,
+                                      "status": "pruned",
+                                      "reason": "invalid: row 2 already has 3 at column 0",
+                                      "depth": 9,
+                                      "children": []
+                                    },
+                                    {
+                                      "id": 26,
+                                      "parent_id": 23,
+                                      "cell": [
+                                        2,
+                                        3
+                                      ],
+                                      "value": 4,
+                                      "status": "pruned",
+                                      "reason": "invalid: column 3 already has 4 at row 3",
+                                      "depth": 9,
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": 27,
+                              "parent_id": 18,
+                              "cell": [
+                                2,
+                                1
+                              ],
+                              "value": 3,
+                              "status": "pruned",
+                              "reason": "invalid: row 2 already has 3 at column 0",
+                              "depth": 7,
+                              "children": []
+                            },
+                            {
+                              "id": 28,
+                              "parent_id": 18,
+                              "cell": [
+                                2,
+                                1
+                              ],
+                              "value": 4,
+                              "status": "solution",
+                              "reason": "passes row/col/box check",
+                              "depth": 7,
+                              "children": [
+                                {
+                                  "id": 29,
+                                  "parent_id": 28,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 2,
+                                  "status": "pruned",
+                                  "reason": "invalid: column 2 already has 2 at row 1",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 30,
+                                  "parent_id": 28,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 3,
+                                  "status": "pruned",
+                                  "reason": "invalid: row 2 already has 3 at column 0",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 31,
+                                  "parent_id": 28,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 4,
+                                  "status": "pruned",
+                                  "reason": "invalid: row 2 already has 4 at column 1",
+                                  "depth": 8,
+                                  "children": []
+                                },
+                                {
+                                  "id": 32,
+                                  "parent_id": 28,
+                                  "cell": [
+                                    2,
+                                    2
+                                  ],
+                                  "value": 1,
+                                  "status": "solution",
+                                  "reason": "passes row/col/box check (fallback)",
+                                  "depth": 8,
+                                  "children": [
+                                    {
+                                      "id": 33,
+                                      "parent_id": 32,
+                                      "cell": [
+                                        2,
+                                        3
+                                      ],
+                                      "value": 2,
+                                      "status": "solution",
+                                      "reason": "passes row/col/box check",
+                                      "depth": 9,
+                                      "children": [
+                                        {
+                                          "id": 34,
+                                          "parent_id": 33,
+                                          "cell": [
+                                            3,
+                                            1
+                                          ],
+                                          "value": 2,
+                                          "status": "solution",
+                                          "reason": "passes row/col/box check",
+                                          "depth": 10,
+                                          "children": [
+                                            {
+                                              "id": 35,
+                                              "parent_id": 34,
+                                              "cell": [
+                                                3,
+                                                2
+                                              ],
+                                              "value": 2,
+                                              "status": "pruned",
+                                              "reason": "invalid: row 3 already has 2 at column 1",
+                                              "depth": 11,
+                                              "children": []
+                                            },
+                                            {
+                                              "id": 36,
+                                              "parent_id": 34,
+                                              "cell": [
+                                                3,
+                                                2
+                                              ],
+                                              "value": 3,
+                                              "status": "solution",
+                                              "reason": "passes row/col/box check",
+                                              "depth": 11,
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

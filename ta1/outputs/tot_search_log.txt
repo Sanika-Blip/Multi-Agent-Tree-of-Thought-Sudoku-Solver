@@ -1,0 +1,68 @@
+[depth 0] Impasse at cell (0,1). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (0,1) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (0,1): INVALID (row 0 already has 2 at column 0). Pruned.
+  -> try 3 at (0,1): valid, descending.
+[depth 1] Impasse at cell (0,2). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (0,2) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (0,2): INVALID (row 0 already has 2 at column 0). Pruned.
+  -> try 3 at (0,2): INVALID (row 0 already has 3 at column 1). Pruned.
+  -> try 4 at (0,2): valid, descending.
+[depth 2] Impasse at cell (0,3). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (0,3) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (0,3): INVALID (row 0 already has 2 at column 0). Pruned.
+  -> try 3 at (0,3): INVALID (row 0 already has 3 at column 1). Pruned.
+  -> try 4 at (0,3): INVALID (row 0 already has 4 at column 2). Pruned.
+  -> try 1 at (0,3): valid, descending. [fallback candidate, not suggested by model]
+[depth 3] Impasse at cell (1,0). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (1,0): INVALID (row 1 already has 2 at column 2). Pruned.
+  -> try 3 at (1,0): INVALID (row 1 already has 3 at column 3). Pruned.
+  -> try 4 at (1,0): valid, descending.
+[depth 4] Impasse at cell (1,1). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (1,1) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (1,1): INVALID (row 1 already has 2 at column 2). Pruned.
+  -> try 3 at (1,1): INVALID (row 1 already has 3 at column 3). Pruned.
+  -> try 4 at (1,1): INVALID (row 1 already has 4 at column 0). Pruned.
+  -> try 1 at (1,1): valid, descending. [fallback candidate, not suggested by model]
+[depth 5] Impasse at cell (2,0). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (2,0): INVALID (column 0 already has 2 at row 0). Pruned.
+  -> try 3 at (2,0): valid, descending.
+[depth 6] Impasse at cell (2,1). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (2,1): valid, descending.
+[depth 7] Impasse at cell (2,2). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (2,2) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (2,2): INVALID (row 2 already has 2 at column 1). Pruned.
+  -> try 3 at (2,2): INVALID (row 2 already has 3 at column 0). Pruned.
+  -> try 4 at (2,2): INVALID (column 2 already has 4 at row 0). Pruned.
+  -> try 1 at (2,2): valid, descending. [fallback candidate, not suggested by model]
+[depth 8] Impasse at cell (2,3). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (2,3): INVALID (row 2 already has 2 at column 1). Pruned.
+  -> try 3 at (2,3): INVALID (row 2 already has 3 at column 0). Pruned.
+  -> try 4 at (2,3): INVALID (column 3 already has 4 at row 3). Pruned.
+  <- backtracking from (2,2)=1: no candidate below it led to a full solution.
+  <- backtracking from (2,1)=2: no candidate below it led to a full solution.
+  -> try 3 at (2,1): INVALID (row 2 already has 3 at column 0). Pruned.
+  -> try 4 at (2,1): valid, descending.
+[depth 7] Impasse at cell (2,2). Model proposes candidates: [2, 3, 4]
+  [fallback] model's candidates missed valid digit(s) [1] for (2,2) -- adding them so the search doesn't dead-end on a model omission.
+  -> try 2 at (2,2): INVALID (column 2 already has 2 at row 1). Pruned.
+  -> try 3 at (2,2): INVALID (row 2 already has 3 at column 0). Pruned.
+  -> try 4 at (2,2): INVALID (row 2 already has 4 at column 1). Pruned.
+  -> try 1 at (2,2): valid, descending. [fallback candidate, not suggested by model]
+[depth 8] Impasse at cell (2,3). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (2,3): valid, descending.
+[depth 9] Impasse at cell (3,1). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (3,1): valid, descending.
+[depth 10] Impasse at cell (3,2). Model proposes candidates: [2, 3, 4]
+  -> try 2 at (3,2): INVALID (row 3 already has 2 at column 1). Pruned.
+  -> try 3 at (3,2): valid, descending.
+
+Nodes explored: 36
+Pruned: 23
+Backtracks: 2
+
+Solved grid:
+2 3 | 4 1
+4 1 | 2 3
+-----------
+3 4 | 1 2
+1 2 | 3 4

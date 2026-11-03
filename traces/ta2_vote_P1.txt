@@ -1,0 +1,292 @@
+solver  temp     status  hops  calls  pruned  backtr    sec  board
+     1   0.2     solved    41     16      34       5 109.45  2341412334121234
+     2   0.7     solved    41     16      34       5 110.78  2341412334121234
+     3   1.0     solved    48     18      39       7 117.08  2341412334121234
+VOTE: majority 3/3 -> 2341412334121234  | total LLM calls 50, wall 117.26s
+
+--- solver 1 log ---
+    Proposer: cell (0, 1) -> [1, 3]
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 1@(0, 1) accepted, descending (siblings kept for later: [3, 4])
+    Proposer: cell (0, 2) -> [1, 3]
+    RuleChecker: 1@(0, 2) PRUNED (invalid: row 0 already has 1 at column 1)
+    RuleChecker: 3@(0, 2) PRUNED (invalid: box 1 already has 3 at (1,3))
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [2, 3, 4]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: column 3 already has 3 at row 1)
+    RuleChecker: 4@(0, 3) PRUNED (invalid: row 0 already has 4 at column 2)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 4@(0, 2); siblings left: []
+    Backtracker: undo 1@(0, 1); siblings left: [3, 4]
+    RuleChecker: 3@(0, 1) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (0, 2) -> [1, 3]
+    RuleChecker: 3@(0, 2) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 1@(0, 2) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (0, 3) -> [1, 2, 3]
+    RuleChecker: 1@(0, 3) PRUNED (invalid: row 0 already has 1 at column 2)
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 1@(0, 2); siblings left: [4]
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [1, 2, 3]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: 1@(0, 3) accepted, descending
+    Proposer: cell (1, 0) -> [2, 3, 4]
+    RuleChecker: 2@(1, 0) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 0) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: 4@(1, 0) accepted, descending
+    Proposer: cell (1, 1) -> [2, 3, 4]
+    RuleChecker: 2@(1, 1) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 1) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: 4@(1, 1) PRUNED (invalid: row 1 already has 4 at column 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(1, 1) accepted, descending
+    Proposer: cell (2, 0) -> [2, 3, 4]
+    RuleChecker: 2@(2, 0) PRUNED (invalid: column 0 already has 2 at row 0)
+    RuleChecker: 4@(2, 0) PRUNED (invalid: column 0 already has 4 at row 1)
+    RuleChecker: 3@(2, 0) accepted, descending
+    Proposer: cell (2, 1) -> [2, 3]
+    RuleChecker: 3@(2, 1) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 2@(2, 1) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (2, 2) -> [2, 3, 4]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 2) PRUNED (invalid: column 2 already has 4 at row 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [2, 3, 4]
+    RuleChecker: 2@(2, 3) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 3) PRUNED (invalid: column 3 already has 4 at row 3)
+    RuleChecker: nothing legal left for (2, 3)
+    Backtracker: undo 1@(2, 2); siblings left: []
+    Backtracker: undo 2@(2, 1); siblings left: [4]
+    RuleChecker: 4@(2, 1) accepted, descending
+    Proposer: cell (2, 2) -> [2, 3, 4]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: column 2 already has 2 at row 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 2) PRUNED (invalid: row 2 already has 4 at column 1)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [1, 3]
+    RuleChecker: 1@(2, 3) PRUNED (invalid: row 2 already has 1 at column 2)
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [2] -> added as fallback
+    RuleChecker: 2@(2, 3) accepted, descending
+    Proposer: cell (3, 1) -> [2, 3, 4]
+    RuleChecker: 3@(3, 1) PRUNED (invalid: column 1 already has 3 at row 0)
+    RuleChecker: 4@(3, 1) PRUNED (invalid: row 3 already has 4 at column 3)
+    RuleChecker: 2@(3, 1) accepted, descending
+    Proposer: cell (3, 2) -> [1, 2]
+    RuleChecker: 1@(3, 2) PRUNED (invalid: row 3 already has 1 at column 0)
+    RuleChecker: 2@(3, 2) PRUNED (invalid: row 3 already has 2 at column 1)
+    RuleChecker: model missed legal digit(s) [3] -> added as fallback
+    RuleChecker: 3@(3, 2) accepted, descending
+[finish] status=solved after 41 hops
+2 3 | 4 1
+4 1 | 2 3
+-----------
+3 4 | 1 2
+1 2 | 3 4
+
+--- solver 2 log ---
+    Proposer: cell (0, 1) -> [1, 3]
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 1@(0, 1) accepted, descending (siblings kept for later: [3, 4])
+    Proposer: cell (0, 2) -> [1, 2, 3]
+    RuleChecker: 1@(0, 2) PRUNED (invalid: row 0 already has 1 at column 1)
+    RuleChecker: 2@(0, 2) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 2) PRUNED (invalid: box 1 already has 3 at (1,3))
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [1, 2, 3]
+    RuleChecker: 1@(0, 3) PRUNED (invalid: row 0 already has 1 at column 1)
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: column 3 already has 3 at row 1)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 4@(0, 2); siblings left: []
+    Backtracker: undo 1@(0, 1); siblings left: [3, 4]
+    RuleChecker: 3@(0, 1) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (0, 2) -> [1, 3]
+    RuleChecker: 3@(0, 2) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 1@(0, 2) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (0, 3) -> [2, 3, 1]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: 1@(0, 3) PRUNED (invalid: row 0 already has 1 at column 2)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 1@(0, 2); siblings left: [4]
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [1, 2, 3]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: 1@(0, 3) accepted, descending
+    Proposer: cell (1, 0) -> [1, 2, 3]
+    RuleChecker: 1@(1, 0) PRUNED (invalid: column 0 already has 1 at row 3)
+    RuleChecker: 2@(1, 0) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 0) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(1, 0) accepted, descending
+    Proposer: cell (1, 1) -> [2, 3, 4]
+    RuleChecker: 2@(1, 1) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 1) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: 4@(1, 1) PRUNED (invalid: row 1 already has 4 at column 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(1, 1) accepted, descending
+    Proposer: cell (2, 0) -> [2, 3, 4]
+    RuleChecker: 2@(2, 0) PRUNED (invalid: column 0 already has 2 at row 0)
+    RuleChecker: 4@(2, 0) PRUNED (invalid: column 0 already has 4 at row 1)
+    RuleChecker: 3@(2, 0) accepted, descending
+    Proposer: cell (2, 1) -> [2, 3]
+    RuleChecker: 3@(2, 1) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 2@(2, 1) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (2, 2) -> [2, 3, 4]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 2) PRUNED (invalid: column 2 already has 4 at row 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [2, 3]
+    RuleChecker: 2@(2, 3) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: nothing legal left for (2, 3)
+    Backtracker: undo 1@(2, 2); siblings left: []
+    Backtracker: undo 2@(2, 1); siblings left: [4]
+    RuleChecker: 4@(2, 1) accepted, descending
+    Proposer: cell (2, 2) -> [2, 3, 4]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: column 2 already has 2 at row 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 2) PRUNED (invalid: row 2 already has 4 at column 1)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [2, 3]
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 2@(2, 3) accepted, descending
+    Proposer: cell (3, 1) -> [4, 3]
+    RuleChecker: 4@(3, 1) PRUNED (invalid: row 3 already has 4 at column 3)
+    RuleChecker: 3@(3, 1) PRUNED (invalid: column 1 already has 3 at row 0)
+    RuleChecker: model missed legal digit(s) [2] -> added as fallback
+    RuleChecker: 2@(3, 1) accepted, descending
+    Proposer: cell (3, 2) -> [1, 2, 3]
+    RuleChecker: 1@(3, 2) PRUNED (invalid: row 3 already has 1 at column 0)
+    RuleChecker: 2@(3, 2) PRUNED (invalid: row 3 already has 2 at column 1)
+    RuleChecker: 3@(3, 2) accepted, descending
+[finish] status=solved after 41 hops
+2 3 | 4 1
+4 1 | 2 3
+-----------
+3 4 | 1 2
+1 2 | 3 4
+
+--- solver 3 log ---
+    Proposer: cell (0, 1) -> [1, 4]
+    RuleChecker: model missed legal digit(s) [3] -> added as fallback
+    RuleChecker: 1@(0, 1) accepted, descending (siblings kept for later: [4, 3])
+    Proposer: cell (0, 2) -> [1, 3]
+    RuleChecker: 1@(0, 2) PRUNED (invalid: row 0 already has 1 at column 1)
+    RuleChecker: 3@(0, 2) PRUNED (invalid: box 1 already has 3 at (1,3))
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [2, 3, 4]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: column 3 already has 3 at row 1)
+    RuleChecker: 4@(0, 3) PRUNED (invalid: row 0 already has 4 at column 2)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 4@(0, 2); siblings left: []
+    Backtracker: undo 1@(0, 1); siblings left: [4, 3]
+    RuleChecker: 4@(0, 1) accepted, descending (siblings kept for later: [3])
+    Proposer: cell (0, 2) -> [2, 3, 4]
+    RuleChecker: 2@(0, 2) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 2) PRUNED (invalid: box 1 already has 3 at (1,3))
+    RuleChecker: 4@(0, 2) PRUNED (invalid: row 0 already has 4 at column 1)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [2, 3, 4]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: column 3 already has 3 at row 1)
+    RuleChecker: 4@(0, 3) PRUNED (invalid: row 0 already has 4 at column 1)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 1@(0, 2); siblings left: []
+    Backtracker: undo 4@(0, 1); siblings left: [3]
+    RuleChecker: 3@(0, 1) accepted, descending
+    Proposer: cell (0, 2) -> [1, 3]
+    RuleChecker: 3@(0, 2) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 1@(0, 2) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (0, 3) -> [2, 3, 4]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: 4@(0, 3) PRUNED (invalid: column 3 already has 4 at row 3)
+    RuleChecker: nothing legal left for (0, 3)
+    Backtracker: undo 1@(0, 2); siblings left: [4]
+    RuleChecker: 4@(0, 2) accepted, descending
+    Proposer: cell (0, 3) -> [2, 3, 4]
+    RuleChecker: 2@(0, 3) PRUNED (invalid: row 0 already has 2 at column 0)
+    RuleChecker: 3@(0, 3) PRUNED (invalid: row 0 already has 3 at column 1)
+    RuleChecker: 4@(0, 3) PRUNED (invalid: row 0 already has 4 at column 2)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(0, 3) accepted, descending
+    Proposer: cell (1, 0) -> [1, 2, 3]
+    RuleChecker: 1@(1, 0) PRUNED (invalid: column 0 already has 1 at row 3)
+    RuleChecker: 2@(1, 0) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 0) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: model missed legal digit(s) [4] -> added as fallback
+    RuleChecker: 4@(1, 0) accepted, descending
+    Proposer: cell (1, 1) -> [2, 3]
+    RuleChecker: 2@(1, 1) PRUNED (invalid: row 1 already has 2 at column 2)
+    RuleChecker: 3@(1, 1) PRUNED (invalid: row 1 already has 3 at column 3)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(1, 1) accepted, descending
+    Proposer: cell (2, 0) -> [2, 3]
+    RuleChecker: 2@(2, 0) PRUNED (invalid: column 0 already has 2 at row 0)
+    RuleChecker: 3@(2, 0) accepted, descending
+    Proposer: cell (2, 1) -> [2, 3, 4]
+    RuleChecker: 3@(2, 1) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 2@(2, 1) accepted, descending (siblings kept for later: [4])
+    Proposer: cell (2, 2) -> [2, 3]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [2, 3, 4]
+    RuleChecker: 2@(2, 3) PRUNED (invalid: row 2 already has 2 at column 1)
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 3) PRUNED (invalid: column 3 already has 4 at row 3)
+    RuleChecker: nothing legal left for (2, 3)
+    Backtracker: undo 1@(2, 2); siblings left: []
+    Backtracker: undo 2@(2, 1); siblings left: [4]
+    RuleChecker: 4@(2, 1) accepted, descending
+    Proposer: cell (2, 2) -> [2, 3, 4]
+    RuleChecker: 2@(2, 2) PRUNED (invalid: column 2 already has 2 at row 1)
+    RuleChecker: 3@(2, 2) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: 4@(2, 2) PRUNED (invalid: row 2 already has 4 at column 1)
+    RuleChecker: model missed legal digit(s) [1] -> added as fallback
+    RuleChecker: 1@(2, 2) accepted, descending
+    Proposer: cell (2, 3) -> [1, 3]
+    RuleChecker: 1@(2, 3) PRUNED (invalid: row 2 already has 1 at column 2)
+    RuleChecker: 3@(2, 3) PRUNED (invalid: row 2 already has 3 at column 0)
+    RuleChecker: model missed legal digit(s) [2] -> added as fallback
+    RuleChecker: 2@(2, 3) accepted, descending
+    Proposer: cell (3, 1) -> [4, 3, 1]
+    RuleChecker: 4@(3, 1) PRUNED (invalid: row 3 already has 4 at column 3)
+    RuleChecker: 3@(3, 1) PRUNED (invalid: column 1 already has 3 at row 0)
+    RuleChecker: 1@(3, 1) PRUNED (invalid: row 3 already has 1 at column 0)
+    RuleChecker: model missed legal digit(s) [2] -> added as fallback
+    RuleChecker: 2@(3, 1) accepted, descending
+    Proposer: cell (3, 2) -> [4, 3]
+    RuleChecker: 4@(3, 2) PRUNED (invalid: row 3 already has 4 at column 3)
+    RuleChecker: 3@(3, 2) accepted, descending
+[finish] status=solved after 48 hops
+2 3 | 4 1
+4 1 | 2 3
+-----------
+3 4 | 1 2
+1 2 | 3 4

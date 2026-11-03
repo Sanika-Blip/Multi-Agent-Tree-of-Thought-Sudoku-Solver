@@ -1,0 +1,8 @@
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\01_seed.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\02_short_term_memory.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\03_resume_after_hop_limit.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\04_long_term_restart.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\05_rag_k1_vs_k3.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\06_tool_failure_recovery.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\07_guard_injection.txt
+[trace] C:\Users\Sanika\Downloads\sudoku_tot_prototype\ta2\..\traces\08_evaluation.txt

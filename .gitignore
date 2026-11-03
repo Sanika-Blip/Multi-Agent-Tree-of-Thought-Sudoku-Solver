@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Generated at run time (recreate with: python ta2/seed_store.py)
+ta2/data/
+ta2/outputs/
+
+# Original TA1 working folder (identical copy is kept in ta1/)
+sudoku_tot/
+
+# Build outputs in report/ (the published copies live in the repo root)
+report/*.pdf
+report/*.pptx
+
+# Office lock files
+~$*
+
+# Node
+node_modules/
+
+# College submission documents (kept locally, not published)
+report.pdf
+*.pptx
+TA2_Explained_Simple.pdf
+report/build_*.py
+report/build_deck.js
+report/report_text.py

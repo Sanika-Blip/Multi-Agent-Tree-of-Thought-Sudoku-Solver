@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Agent Tree-of-Thought Sudoku Solver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <p class="kicker">Agentic AI · MIT ADT University, Pune</p>
+        <h1>Multi-agent Tree-of-Thought Sudoku solver</h1>
+        <p class="lede">A 4×4 puzzle, solved in the browser by a supervisor and three specialist agents. Press play and watch guesses get checked, pruned, and undone. The graded runs used a local Qwen model; this page uses the same agent loop with a fixed weak proposer so it works without installing anything.</p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/Sanika-Blip/Multi-Agent-Tree-of-Thought-Sudoku-Solver">GitHub</a>
+        <a href="#results">Results</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card controls">
+        <h2>Run</h2>
+        <label class="field">Puzzle
+          <select id="puzzle">
+            <option value="P1">P1 — jury puzzle</option>
+            <option value="P2">P2</option>
+            <option value="P3">P3</option>
+            <option value="P4">P4</option>
+            <option value="P5">P5</option>
+          </select>
+        </label>
+        <label class="toggle"><input id="guard" type="checkbox" checked> Rule checker on</label>
+        <label class="field">Speed <span id="speed-label">medium</span>
+          <input id="speed" type="range" min="0" max="2" value="1">
+        </label>
+        <div class="row">
+          <button class="btn primary" id="play" type="button">Play</button>
+          <button class="btn" id="step" type="button">Step</button>
+          <button class="btn" id="reset" type="button">Reset</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><b id="stat-hops">0</b><span>hops</span></div>
+          <div class="stat"><b id="stat-pruned">0</b><span>pruned</span></div>
+          <div class="stat"><b id="stat-backs">0</b><span>backtracks</span></div>
+        </div>
+        <p class="note" id="outcome">Ready. The rule checker rejects digits that repeat in a row, column, or 2×2 box.</p>
+      </section>
+
+      <section class="card">
+        <h2>Board</h2>
+        <div class="board-wrap"><div class="board" id="board"></div></div>
+        <p class="status-line" id="status">Given digits stay fixed. Empty cells are filled by the search.</p>
+      </section>
+
+      <section class="card">
+        <h2>Agents</h2>
+        <div class="agents" id="agents">
+          <div class="agent Supervisor" data-agent="Supervisor"><strong>Supervisor</strong><span>Chooses the next agent. Never edits the board itself.</span></div>
+          <div class="agent Proposer" data-agent="Proposer"><strong>Proposer</strong><span>Suggests digits for the next empty cell.</span></div>
+          <div class="agent RuleChecker" data-agent="RuleChecker"><strong>Rule checker</strong><span>The only agent that can prune a branch.</span></div>
+          <div class="agent Backtracker" data-agent="Backtracker"><strong>Backtracker</strong><span>Undoes the last guess at a dead end.</span></div>
+        </div>
+        <div class="log" id="log"></div>
+      </section>
+    </main>
+
+    <section class="section" id="results">
+      <div class="card">
+        <h2>What the real model did</h2>
+        <p class="note">Same five puzzles, <code>qwen2.5:3b</code> through Ollama on a laptop. Chain-of-thought solved none. Search solved all five. Full table: <code>traces/eval_table.md</code> in the repo.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Approach</th>
+                <th>Solved</th>
+                <th>LLM calls</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>TA1 one-shot chain-of-thought</td><td>0 / 5</td><td>5</td><td>—</td></tr>
+              <tr><td>TA1 tree-of-thought search</td><td>5 / 5</td><td>58</td><td>269 s</td></tr>
+              <tr><td>TA2 multi-agent search</td><td>5 / 5</td><td>61</td><td>200 s</td></tr>
+              <tr><td>TA2 three solvers + majority vote</td><td>5 / 5</td><td>186</td><td>384 s</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="agents-grid">
+        <article><h3>Short-term memory</h3><p>A checkpoint after every hop lets a stopped search resume on the same thread.</p></article>
+        <article><h3>Long-term memory</h3><p>Proven dead ends are stored and survive a restart of the program.</p></article>
+        <article><h3>Retrieval</h3><p>Ten short Sudoku notes are indexed. The proposer reads one before it guesses.</p></article>
+        <article><h3>Guard</h3><p>Switch the rule checker off above. Illegal digits stay on the board and the solve fails.</p></article>
+      </div>
+    </section>
+
+    <footer>
+      Live interface for the course project. The Python system, traces, and architecture notes are in the GitHub repository.
+    </footer>
+  </div>
+  <script src="solver.js"></script>
+  <script>
+    var demo = window.SudokuDemo;
+    var state = { steps: [], index: -1, timer: null, puzzleId: "P1" };
+    var speeds = [520, 220, 70];
+    var speedNames = ["slow", "medium", "fast"];
+
+    var boardEl = document.getElementById("board");
+    var logEl = document.getElementById("log");
+    var statusEl = document.getElementById("status");
+    var outcomeEl = document.getElementById("outcome");
+    var playBtn = document.getElementById("play");
+
+    function givenOf(id) {
+      return demo.PUZZLES[id];
+    }
+
+    function paintBoard(grid, step) {
+      var puzzle = givenOf(state.puzzleId);
+      boardEl.innerHTML = "";
+      for (var r = 0; r < 4; r++) {
+        for (var c = 0; c < 4; c++) {
+          var cell = document.createElement("div");
+          cell.className = "cell";
+          if (c === 1) cell.classList.add("thick-r");
+          if (r === 1) cell.classList.add("thick-b");
+          var value = grid ? grid[r][c] : puzzle[r][c];
+          var given = puzzle[r][c] !== 0;
+          if (given) cell.classList.add("given");
+          if (step && step.cell && step.cell[0] === r && step.cell[1] === c) {
+            cell.classList.add("active");
+            if (step.kind === "undo" || step.kind === "dead") cell.classList.add("undo");
+            else if (step.kind === "illegal" || step.kind === "invalid") cell.classList.add("bad");
+            else if (step.kind === "place" || step.kind === "solved") cell.classList.add("good");
+          }
+          cell.textContent = value ? String(value) : "";
+          boardEl.appendChild(cell);
+        }
+      }
+    }
+
+    function setAgents(name) {
+      document.querySelectorAll(".agent").forEach(function (el) {
+        el.classList.toggle("on", el.getAttribute("data-agent") === name);
+      });
+    }
+
+    function renderStep(step) {
+      paintBoard(step.grid, step);
+      setAgents(step.agent);
+      statusEl.textContent = step.text;
+      document.getElementById("stat-hops").textContent = String(step.hop);
+      document.getElementById("stat-pruned").textContent = String(step.pruned);
+      document.getElementById("stat-backs").textContent = String(step.backtracks);
+      var line = document.createElement("p");
+      var who = document.createElement("b");
+      who.textContent = step.agent + ". ";
+      line.appendChild(who);
+      line.appendChild(document.createTextNode(step.text));
+      logEl.appendChild(line);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function stop() {
+      if (state.timer) {
+        clearInterval(state.timer);
+        state.timer = null;
+      }
+      playBtn.textContent = "Play";
+    }
+
+    function finishMessage() {
+      if (state.index < state.steps.length - 1) return;
+      var last = state.steps[state.steps.length - 1];
+      if (!last) return;
+      if (last.kind === "solved") outcomeEl.textContent = "Solved. Search beat a single guess: illegal digits were pruned, and dead ends were undone.";
+      else if (last.kind === "invalid") outcomeEl.textContent = "Not solved. With the rule checker off, illegal digits were placed and the finished grid breaks Sudoku rules.";
+      else if (last.kind === "limit") outcomeEl.textContent = "Stopped at the hop limit before a solution.";
+      else outcomeEl.textContent = "Search finished without a solution.";
+      stop();
+    }
+
+    function showNext() {
+      if (state.index >= state.steps.length - 1) {
+        finishMessage();
+        return false;
+      }
+      state.index += 1;
+      renderStep(state.steps[state.index]);
+      if (state.index >= state.steps.length - 1) finishMessage();
+      return true;
+    }
+
+    function prepare() {
+      stop();
+      state.puzzleId = document.getElementById("puzzle").value;
+      var guard = document.getElementById("guard").checked;
+      var result = demo.runSearch(demo.PUZZLES[state.puzzleId], { guard: guard });
+      state.steps = result.steps;
+      state.index = -1;
+      logEl.innerHTML = "";
+      document.getElementById("stat-hops").textContent = "0";
+      document.getElementById("stat-pruned").textContent = "0";
+      document.getElementById("stat-backs").textContent = "0";
+      setAgents("");
+      paintBoard(demo.PUZZLES[state.puzzleId], null);
+      statusEl.textContent = "Given digits stay fixed. Empty cells are filled by the search.";
+      outcomeEl.textContent = guard
+        ? "Rule checker on. Only legal digits can be placed, so a wrong branch can be undone."
+        : "Rule checker off. The first suggested digit is placed even when it repeats a row, column, or box.";
+    }
+
+    playBtn.addEventListener("click", function () {
+      if (state.timer) {
+        stop();
+        return;
+      }
+      if (state.index >= state.steps.length - 1) prepare();
+      playBtn.textContent = "Pause";
+      var delay = speeds[Number(document.getElementById("speed").value)];
+      state.timer = setInterval(function () {
+        if (!showNext()) stop();
+      }, delay);
+    });
+
+    document.getElementById("step").addEventListener("click", function () {
+      stop();
+      if (state.index >= state.steps.length - 1) prepare();
+      showNext();
+    });
+
+    document.getElementById("reset").addEventListener("click", prepare);
+    document.getElementById("puzzle").addEventListener("change", prepare);
+    document.getElementById("guard").addEventListener("change", prepare);
+    document.getElementById("speed").addEventListener("input", function (event) {
+      document.getElementById("speed-label").textContent = speedNames[Number(event.target.value)];
+      if (state.timer) {
+        stop();
+        playBtn.click();
+      }
+    });
+
+    prepare();
+  </script>
+</body>
+</html>

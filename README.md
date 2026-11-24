@@ -1,5 +1,7 @@
 # Multi-Agent Tree-of-Thought Sudoku Solver
 
+**Live demo:** https://sanika-blip.github.io/Multi-Agent-Tree-of-Thought-Sudoku-Solver/
+
 A small language model can't solve a Sudoku puzzle in one pass. This project
 shows why, and fixes it with a set of agents that search, check, remember
 and recover from errors. Everything runs locally: no paid APIs and no internet
